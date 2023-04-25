@@ -1,5 +1,6 @@
 package com.upc.puppiesvetweb.entidades;
 
+import com.upc.puppiesvetweb.utils.Constantes;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,4 +17,7 @@ public class RazaMascota {
     private String nombreRazaMascota;
     private String descripcionRazaMascota;
     private String cuidadosRazaMascota;
+    private boolean estado;
+    public RazaMascota(){
+    }
 }

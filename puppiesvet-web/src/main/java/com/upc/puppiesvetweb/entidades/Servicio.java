@@ -1,5 +1,6 @@
 package com.upc.puppiesvetweb.entidades;
 
+import com.upc.puppiesvetweb.utils.Constantes;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,4 +16,7 @@ public class Servicio {
     private Long idServicio;
     private String nombreServicio;
     private String descripcionServicio;
+    private boolean estado;
+    public Servicio(){
+    }
 }

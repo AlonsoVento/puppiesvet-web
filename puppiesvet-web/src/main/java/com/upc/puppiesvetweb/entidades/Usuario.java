@@ -1,6 +1,5 @@
 package com.upc.puppiesvetweb.entidades;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +9,6 @@ import lombok.Setter;
 @Entity
 @Table(name = "TBL_USUARIO")
 public class Usuario {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_Usuario")
@@ -22,4 +20,14 @@ public class Usuario {
     private String direccionUsuario;
     private String imagenUsuario;
     private String password;
+    private String rol;
+    private boolean estado;
+    public Usuario(){
+    }
+    public Usuario(Long idUsuario, String nombreUsuario, String password, boolean estado){
+        this.setIdUsuario(idUsuario);
+        this.setNombreUsuario(nombreUsuario);
+        this.setPassword(password);
+        this.setEstado(estado);
+    }
 }
