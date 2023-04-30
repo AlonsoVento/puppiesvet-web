@@ -10,15 +10,16 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table(name = "TBL_USUARIO")
+@Table(name = "TBL_USUARIO",uniqueConstraints = {@UniqueConstraint(name = "unique_dni_usuario", columnNames = {"dniUsuario"})})
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_Usuario")
     private Long idUsuario;
+    @Column(unique = true)
+    private String dniUsuario;
     private String nombreUsuario;
     private String emailUsuario;
-    private String dniUsuario;
     private String celularUsuario;
     private String direccionUsuario;
     private String imagenUsuario;

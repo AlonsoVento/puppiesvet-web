@@ -44,11 +44,11 @@ public class UsuarioRest {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"No se encontró el código",e);
         }
     }
-    @GetMapping("/usuario/usuario={nombreUsuario}&&password={password}")
-    public Usuario autenticar(@PathVariable(value = "nombreUsuario") String nombreUsuario,
-                          @PathVariable(value = "password") String password){
+    @GetMapping("/usuario/dni={dniUsuario}&&password={password}")
+    public Usuario autenticar(@PathVariable(value = "dniUsuario") String dniUsuario,
+                              @PathVariable(value = "password") String password){
         try {
-            return iUsuarioNegocio.buscarPorUsernamePassword(nombreUsuario,password);
+            return iUsuarioNegocio.buscarPorDniPassword(dniUsuario,password);
         } catch (Exception e) {
             logger.error("Error critico en la aplicación: " + e );
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"No se encontró el código",e);

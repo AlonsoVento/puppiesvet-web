@@ -40,6 +40,7 @@ class PuppiesvetWebApplicationTests {
 		usuario.setNombreUsuario("Luis Romero Levano");
 		usuario.setPassword("123456");
 		usuario.setCelularUsuario("981535844");
+		usuario.setDniUsuario("74134578");
 		usuario.setDireccionUsuario("Av. Siempreviva 123");
 		usuario.setEmailUsuario("lromero@upc.edu.pe");
 		usuario.setRol(Constantes.ROL_ADMINISTRADOR);
@@ -72,6 +73,7 @@ class PuppiesvetWebApplicationTests {
 		usuario.setNombreUsuario("Jorge Marin Canta");
 		usuario.setPassword("123456");
 		usuario.setCelularUsuario("985786325");
+		usuario.setDniUsuario("66985421");
 		usuario.setDireccionUsuario("Av. Siempreviva 123");
 		usuario.setEmailUsuario("jmarin@upc.edu.pe");
 		usuario.setRol(Constantes.ROL_CLIENTE);

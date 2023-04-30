@@ -7,4 +7,5 @@ import java.util.Optional;
 
 public interface IUsuarioRepositorio extends JpaRepository<Usuario,Long> {
     public Optional<Usuario> findByNombreUsuarioEqualsAndPasswordEquals(String nombreUsuario, String password);
+    public Optional<Usuario> findByDniUsuarioEqualsAndPasswordEquals(String dniUsuario,String password);
 }

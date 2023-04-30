@@ -32,7 +32,7 @@ public class UsuarioNegocio implements IUsuarioNegocio{
     }
 
     @Override
-    public Usuario buscarPorUsernamePassword(String nombreUsuario, String password) throws Exception {
-        return iUsuarioRepositorio.findByNombreUsuarioEqualsAndPasswordEquals(nombreUsuario,password).orElseThrow(()->new Exception("No se encontro usuario con la contraseña provista"));
+    public Usuario buscarPorDniPassword(String dniUsuario, String password) throws Exception {
+        return iUsuarioRepositorio.findByDniUsuarioEqualsAndPasswordEquals(dniUsuario,password).orElseThrow(()->new Exception("No se encontro usuario con la contraseña provista"));
     }
 }
