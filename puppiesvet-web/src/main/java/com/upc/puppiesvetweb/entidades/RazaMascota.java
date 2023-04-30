@@ -1,9 +1,12 @@
 package com.upc.puppiesvetweb.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.upc.puppiesvetweb.utils.Constantes;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.Set;
 
 @Getter
 @Setter
@@ -18,6 +21,16 @@ public class RazaMascota {
     private String descripcionRazaMascota;
     private String cuidadosRazaMascota;
     private boolean estado;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "id_EspecieMascota", foreignKey = @ForeignKey(name = "fk_raza_mascota_especie_mascota") )
+    private EspecieMascota especieMascota;
+    @OneToMany(mappedBy = "razaMascota",cascade = CascadeType.ALL)
+    @JsonIgnore
+    Set<Mascota> lstMascota;
     public RazaMascota(){
+        this.setEstado(true);
+    }
+    public RazaMascota(Long idRazaMascota){
+        this.setIdRazaMascota(idRazaMascota);
     }
 }

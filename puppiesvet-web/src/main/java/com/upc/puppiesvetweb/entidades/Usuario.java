@@ -1,8 +1,11 @@
 package com.upc.puppiesvetweb.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.Set;
 
 @Getter
 @Setter
@@ -22,7 +25,17 @@ public class Usuario {
     private String password;
     private String rol;
     private boolean estado;
+    @OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL)
+    @JsonIgnore
+    Set<Mascota> lstMascota;
+    @OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL)
+    @JsonIgnore
+    Set<Orden> lstOrden;
     public Usuario(){
+        this.setEstado(true);
+    }
+    public Usuario(Long idUsuario){
+        this.setIdUsuario(idUsuario);
     }
     public Usuario(Long idUsuario, String nombreUsuario, String password, boolean estado){
         this.setIdUsuario(idUsuario);
