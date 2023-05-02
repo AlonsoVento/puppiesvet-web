@@ -9,4 +9,6 @@ public interface IRazaMascotaNegocio {
     public RazaMascota buscar(Long id) throws Exception;
     public List<RazaMascota> listado();
     public RazaMascota actualizar(RazaMascota razaMascota) throws Exception;
+    public List<RazaMascota> listadoActivos();
+    public List<RazaMascota> listadoActivosAndEspecie(Long idEspecieMascota);
 }

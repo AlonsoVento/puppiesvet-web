@@ -22,6 +22,10 @@ public class RazaMascotaRest {
     public List<RazaMascota> listado(){
         return iRazaMascotaNegocio.listado();
     }
+    @GetMapping("/raza_mascota/especie/{id}")
+    public List<RazaMascota> buscarPorEspecie(@PathVariable(value = "id") Long id){
+        return iRazaMascotaNegocio.listadoActivosAndEspecie(id);
+    }
     @PostMapping("/raza_mascota")
     public RazaMascota registrar(@RequestBody RazaMascota razaMascota){
         return iRazaMascotaNegocio.registrar(razaMascota);

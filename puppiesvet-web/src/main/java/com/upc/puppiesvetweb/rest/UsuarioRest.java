@@ -22,6 +22,14 @@ public class UsuarioRest {
     public List<Usuario> listado(){
         return iUsuarioNegocio.listado();
     }
+    @GetMapping("/usuario_active")
+    public List<Usuario> listadoActivos(){
+        return iUsuarioNegocio.listadoActivos();
+    }
+    @GetMapping("/usuario/rol/{rol}")
+    public List<Usuario> listadoActivosPorRol(@PathVariable(value = "rol") String rol){
+        return iUsuarioNegocio.listadoActivosAndRol(rol);
+    }
     @PostMapping("/usuario")
     public Usuario registrar(@RequestBody Usuario usuario){
         return iUsuarioNegocio.registrar(usuario);

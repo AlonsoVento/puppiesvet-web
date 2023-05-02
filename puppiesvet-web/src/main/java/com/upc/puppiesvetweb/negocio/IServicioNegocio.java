@@ -9,4 +9,5 @@ public interface IServicioNegocio {
     public Servicio buscar(Long id) throws Exception;
     public List<Servicio> listado();
     public Servicio actualizar(Servicio servicio) throws Exception;
+    public List<Servicio> listadoActivos();
 }

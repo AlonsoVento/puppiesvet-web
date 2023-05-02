@@ -22,6 +22,10 @@ public class EspecieMascotaRest {
     public List<EspecieMascota> listado(){
         return iEspecieMascotaNegocio.listado();
     }
+    @GetMapping("/especie_mascota_active")
+    public List<EspecieMascota> listadoActivos(){
+        return iEspecieMascotaNegocio.listadoActivos();
+    }
     @PostMapping("/especie_mascota")
     public EspecieMascota registrar(@RequestBody EspecieMascota especieMascota){
         return iEspecieMascotaNegocio.registrar(especieMascota);

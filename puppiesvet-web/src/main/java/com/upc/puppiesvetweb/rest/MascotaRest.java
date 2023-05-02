@@ -35,6 +35,12 @@ public class MascotaRest {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"No se encontró el código",e);
         }
     }
+
+    @GetMapping("/mascota/usuario/{id}")
+    public List<Mascota> buscarPorUsuario(@PathVariable(value = "id") Long id){
+        return iMascotaNegocio.listadoPorUsuarioMascota(id);
+    }
+
     @PutMapping("/mascota/{id}")
     public Mascota actualizar(@RequestBody Mascota mascota){
         try {

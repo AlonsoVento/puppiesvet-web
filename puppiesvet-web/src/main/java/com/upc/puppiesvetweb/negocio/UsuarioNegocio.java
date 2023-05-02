@@ -5,6 +5,7 @@ import com.upc.puppiesvetweb.repositorio.IUsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 @Service
 public class UsuarioNegocio implements IUsuarioNegocio{
@@ -34,5 +35,21 @@ public class UsuarioNegocio implements IUsuarioNegocio{
     @Override
     public Usuario buscarPorDniPassword(String dniUsuario, String password) throws Exception {
         return iUsuarioRepositorio.findByDniUsuarioEqualsAndPasswordEquals(dniUsuario,password).orElseThrow(()->new Exception("No se encontro usuario con la contraseña provista"));
+    }
+
+    @Override
+    public List<Usuario> listadoActivosAndRol(String rol) {
+        List<Usuario> usuarioListOutput = new ArrayList<>();
+        for( Usuario usuario: listadoActivos() ){
+            if(usuario.getRol().equals(rol)){
+                usuarioListOutput.add(usuario);
+            }
+        }
+        return usuarioListOutput;
+    }
+
+    @Override
+    public List<Usuario> listadoActivos() {
+        return iUsuarioRepositorio.findAllByEstadoIsTrue();
     }
 }

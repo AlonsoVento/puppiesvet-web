@@ -22,6 +22,10 @@ public class ServicioRest {
     public List<Servicio> listado(){
         return iServicioNegocio.listado();
     }
+    @GetMapping("/servicio_active")
+    public List<Servicio> listadoActivos(){
+        return iServicioNegocio.listadoActivos();
+    }
     @PostMapping("/servicio")
     public Servicio registrar(@RequestBody Servicio usuario){
         return iServicioNegocio.registrar(usuario);

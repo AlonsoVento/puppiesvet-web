@@ -22,10 +22,21 @@ public class OrdenRest {
     public List<Orden> listado(){
         return iOrdenNegocio.listado();
     }
+
     @PostMapping("/orden")
     public Orden registrar(@RequestBody Orden orden){
         return iOrdenNegocio.registrar(orden);
     }
+    @GetMapping("/orden/cliente/{id}")
+    public List<Orden> buscarPorCliente(@PathVariable(value = "id") Long id){
+        return iOrdenNegocio.listadoPorUsuarioMascota(id);
+    }
+
+    @GetMapping("/orden/admin/{id}")
+    public List<Orden> buscarPorAdministrador(@PathVariable(value = "id") Long id){
+        return iOrdenNegocio.listadoPorUsuarioAtiende(id);
+    }
+
     @GetMapping("/orden/{id}")
     public Orden buscar(@PathVariable(value = "id") Long id){
         try {
@@ -35,6 +46,7 @@ public class OrdenRest {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"No se encontró el código",e);
         }
     }
+
     @PutMapping("/orden/{id}")
     public Orden actualizar(@RequestBody Orden orden){
         try {

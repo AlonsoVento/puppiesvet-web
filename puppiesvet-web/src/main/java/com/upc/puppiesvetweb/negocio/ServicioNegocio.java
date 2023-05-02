@@ -30,4 +30,9 @@ public class ServicioNegocio implements IServicioNegocio{
         buscar(servicio.getIdServicio());
         return iServicioRepositorio.save(servicio);
     }
+
+    @Override
+    public List<Servicio> listadoActivos() {
+        return iServicioRepositorio.findAllByEstadoIsTrue();
+    }
 }

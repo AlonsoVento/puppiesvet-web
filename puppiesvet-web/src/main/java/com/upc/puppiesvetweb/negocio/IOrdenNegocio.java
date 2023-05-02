@@ -9,4 +9,7 @@ public interface IOrdenNegocio {
     public Orden buscar(Long id) throws Exception;
     public List<Orden> listado();
     public Orden actualizar(Orden orden) throws Exception;
+    public List<Orden> listadoActivos();
+    public List<Orden> listadoPorUsuarioMascota(Long idUsuarioMascota);
+    public List<Orden> listadoPorUsuarioAtiende(Long idUsuario);
 }

@@ -30,4 +30,9 @@ public class EspecieMascotaNegocio implements IEspecieMascotaNegocio{
         buscar(especieMascota.getIdEspecieMascota());
         return iEspecieMascotaRepositorio.save(especieMascota);
     }
+
+    @Override
+    public List<EspecieMascota> listadoActivos() {
+        return iEspecieMascotaRepositorio.findAllByEstadoIsTrue();
+    }
 }
